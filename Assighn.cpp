@@ -3,25 +3,25 @@
 #include <string>
 using namespace std;
 
-struct EmployeeRecord {
+struct Employee {
     
 };
 
 
-void accept(EmployeeRecord& record) {
+void accept(Employee& record) {
     
 }
 
-void search(EmployeeRecord& record){
+void search(Employee& record){
 
 }
 
-void deleteEmp(EmployeeRecord& record) {
+void deleteEmp(Employee& record) {
 
 
 }
 
-void saveEmp(const EmployeeRecord& record, fstream& outFile) {
+void saveEmp(const Employee& record, fstream& outFile) {
     
 }
 
@@ -31,7 +31,7 @@ void readRecords(fstream& inFile) {
 }
 
 
-void display(const EmployeeRecord& record) {
+void display(const Employee& record) {
     
 }
 
