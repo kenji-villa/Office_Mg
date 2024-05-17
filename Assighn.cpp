@@ -39,7 +39,9 @@ void deleteEmp(Employee& record, fstream& file) {
 }
 
 void saveEmp(const Employee& record, fstream& outFile) {
-    
+    outFile.open("employee.txt", ios::app);
+    outFile << record.name << ' '<< record.id << ' '<< record.age <<' '<< record.salary <<' '<< record.department <<' '<< record.position << endl;
+    outFile.close();
 }
 
 void editEmp(Employee& record, fstream& file){
@@ -64,7 +66,6 @@ long getFileSize(fstream& file) {
 int main() {
     int num;
     fstream file;
-    file.open("employee.txt", ios::in | ios::out);
     if (!file) {
         cout << "File could not be opened" << endl;
         return 1;
