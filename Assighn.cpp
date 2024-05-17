@@ -14,7 +14,7 @@ struct Employee {
 };
 
 
-void accept(Employee& record) {
+void addEmp(Employee& record) {
     cout<<"pleas enter employee name";
     cin>>record.name;
     cout<<"pleas enter employee id";
@@ -29,11 +29,11 @@ void accept(Employee& record) {
     cin>>record.position;
 }
 
-void search(Employee& record){
+void searchEmp(Employee& record, fstream& file){
     
 }
 
-void deleteEmp(Employee& record) {
+void deleteEmp(Employee& record, fstream& file) {
 
 
 }
@@ -42,13 +42,18 @@ void saveEmp(const Employee& record, fstream& outFile) {
     
 }
 
+void editEmp(Employee& record, fstream& file){
+
+
+}
+
 
 void readRecords(fstream& inFile) {
 
 }
 
 
-void display(const Employee& record) {
+void display(fstream &record) {
     
 }
 
@@ -57,6 +62,46 @@ long getFileSize(fstream& file) {
     
 }
 int main() {
+    int num;
+    fstream file;
+    file.open("employee.txt", ios::in | ios::out);
+    if (!file) {
+        cout << "File could not be opened" << endl;
+        return 1;
+        }
+    Employee* record= new Employee[num];
+    
     cout<<"what do u wana do?";
-    cout<<"";
+    cout<<"1, add Employee";
+    cout<<"2, edit employee info";
+    cout<<"3, delete employee";
+    cout<<"4, search employee";
+    cout<<"5, desplay employeies";
+    cout<<"6, exit";
+    int choice;
+    cin>>choice;
+    switch(choice){
+        case 1:
+        addEmp(*record);
+        saveEmp(*record, file);
+        break;
+        case 2:
+        editEmp(*record, file);
+        break;
+        case 3:
+        deleteEmp(*record, file);
+        break;
+        case 4:
+        searchEmp(*record, file);
+        break;
+        case 5:
+        display(file);
+        break;
+        case 6:
+        exit(0);
+        break;
+        default:
+        cout<<"invalid choice";
+        break;
+    }
 }
