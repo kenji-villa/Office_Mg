@@ -15,17 +15,17 @@ struct Employee {
 
 
 void addEmp(Employee& record) {
-    cout<<"pleas enter employee name";
+    cout<<"pleas enter employee name: ";
     cin>>record.name;
-    cout<<"pleas enter employee id";
+    cout<<"pleas enter employee id: ";
     cin>>record.id;
-    cout<<"pleas enter employee age";
+    cout<<"pleas enter employee age: ";
     cin>>record.age;
-    cout<<"pleas enter employee salary";
+    cout<<"pleas enter employee salary: ";
     cin>>record.salary;
-    cout<<"pleas enter employee department";
+    cout<<"pleas enter employee department: ";
     cin>>record.department;
-    cout<<"pleas enter employee position";
+    cout<<"pleas enter employee position: ";
     cin>>record.position;
 }
 
@@ -131,24 +131,24 @@ int main() {
         cout << "File could not be opened" << endl;
         return 1;
         }
-    Employee* record= new Employee[num];
+    Employee record;
     
-    cout<<"what do u wana do?"<<endl;
-    cout<<"1, add Employee"<<endl;
-    cout<<"2, edit employee info"<<endl;
-    cout<<"3, delete employee"<<endl;
-    cout<<"4, search employee"<<endl;
-    cout<<"5, desplay employeies"<<endl;
-    cout<<"6, exit"<<endl;
+    cout<<"what do u wana do? "<<endl;
+    cout<<"1, add Employee "<<endl;
+    cout<<"2, edit employee info "<<endl;
+    cout<<"3, delete employee "<<endl;
+    cout<<"4, search employee "<<endl;
+    cout<<"5, desplay employeies "<<endl;
+    cout<<"6, exit "<<endl;
     int choice;
     cin>>choice;
     switch(choice){
         case 1:
-        addEmp(*record);
-        saveEmp(*record, file);
+        addEmp(record);
+        saveEmp(record, file);
         break;
         case 2:
-        editEmp(*record, file);
+        editEmp(record, file);
         break;
         case 3:
         deleteEmp(file);
@@ -166,4 +166,5 @@ int main() {
         cout<<"invalid choice";
         break;
     }
+    return 0;
 }
