@@ -133,13 +133,13 @@ int main() {
         }
     Employee* record= new Employee[num];
     
-    cout<<"what do u wana do?";
-    cout<<"1, add Employee";
-    cout<<"2, edit employee info";
-    cout<<"3, delete employee";
-    cout<<"4, search employee";
-    cout<<"5, desplay employeies";
-    cout<<"6, exit";
+    cout<<"what do u wana do?"<<endl;
+    cout<<"1, add Employee"<<endl;
+    cout<<"2, edit employee info"<<endl;
+    cout<<"3, delete employee"<<endl;
+    cout<<"4, search employee"<<endl;
+    cout<<"5, desplay employeies"<<endl;
+    cout<<"6, exit"<<endl;
     int choice;
     cin>>choice;
     switch(choice){
