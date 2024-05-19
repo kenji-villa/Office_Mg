@@ -116,8 +116,19 @@ void readRecords(fstream& file) {
 
 
 
-void display(fstream &record) {
-    
+void display(fstream &file) {
+    file.open("employee.txt", ios::in);
+    string line;
+    cout << "Employee Records:" << endl;
+
+    // Move the file pointer to the beginning of the file
+    file.seekg(0, ios::beg);
+
+    // Read and display each line from the file
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+    file.close();
 }
 
 
