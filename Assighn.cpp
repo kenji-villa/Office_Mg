@@ -133,7 +133,7 @@ void display(fstream &file) {
 
 
 long getFileSize(fstream& file) {
-    
+    //unused function for some reason...
 }
 int main() {
     int num;
