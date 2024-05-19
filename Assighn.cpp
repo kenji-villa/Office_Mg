@@ -97,8 +97,62 @@ void saveEmp(const Employee& record, fstream& outFile) {
     outFile.close();
 }
 
-void editEmp(Employee& record, fstream& file){
+void editEmp(fstream& file){
 
+string empName;
+    cout << "Enter the name of the employee to update: ";
+    cin >> empName;
+
+    // Move the file pointer to the beginning of the file
+    file.seekg(0, ios::beg);
+
+    string line;
+    bool found = false;
+    fstream tempFile("temp.txt", ios::out);
+
+    while (getline(file, line)) {
+        size_t pos = line.find(',');
+        string name = line.substr(0, pos);
+
+        if (name == empName) {
+            found = true;
+            Employee record;
+            record.name = empName;
+
+            cout << "Current employee information:" << endl;
+            cout << line << endl;
+
+            cout << "Enter new employee information:" << endl;
+            cout << "Name: ";
+            cin >> record.name;
+            cout << "ID: ";
+            cin >> record.id;
+            cout << "Age: ";
+            cin >> record.age;
+            cout << "Salary: ";
+            cin >> record.salary;
+            cout << "Department: ";
+            cin >> record.department;
+            cout << "Position: ";
+            cin >> record.position;
+
+            tempFile << record.name << "," << record.id << "," << record.age << "," << record.salary << "," << record.department << "," << record.position << endl;
+        } else {
+            tempFile << line << endl;
+        }
+    }
+
+    file.close();
+    tempFile.close();
+
+    remove("employees.txt");
+    rename("temp.txt", "employees.txt");
+
+    if (found) {
+        cout << "Employee record updated successfully." << endl;
+    } else {
+        cout << "Employee not found." << endl;
+    }
 
 }
 
@@ -159,7 +213,7 @@ int main() {
         saveEmp(record, file);
         break;
         case 2:
-        editEmp(record, file);
+        editEmp(file);
         break;
         case 3:
         deleteEmp(file);
